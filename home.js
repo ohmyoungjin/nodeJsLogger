@@ -7,7 +7,7 @@ var rfs = require('rotating-file-stream')
 
 //accesslog만 따로 지정해서 보관할 경로 설정
 var accessLogStream = rfs.createStream('access.log', {
-    interval: '20s', // rotate daily
+    interval: '1d', // rotate daily
     path: path.join('D:/logs/chatctl/test', 'access')
   })
 

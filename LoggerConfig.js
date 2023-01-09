@@ -59,17 +59,17 @@ const logger = winston.createLogger({
          zippedArchive: true,
       }),      
    ],
-   //* uncaughtException 발생시 파일 설정
-   // exceptionHandlers: [
-   //    new winstonDaily({
-   //       level: 'error',
-   //       datePattern: 'YYYYMMDD',
-   //       dirname: logDir,
-   //       filename: `%DATE%.exception.log`,
-   //       maxFiles: 30,
-   //       zippedArchive: true,
-   //    }),
-   // ],
+   // uncaughtException 발생시 파일 설정
+   exceptionHandlers: [
+      new winstonDaily({
+         level: 'error',
+         datePattern: 'YYYYMMDD',
+         dirname: logDir,
+         filename: `%DATE%.exception.log`,
+         maxFiles: 30,
+         zippedArchive: true,
+      }),
+   ],
 });
  
 
