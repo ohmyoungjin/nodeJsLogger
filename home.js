@@ -20,7 +20,9 @@ app.use(morgan('combined', { stream: accessLogStream }))
 const port = 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+    logger.info("Hello World!")
+    logger.error("Hello World!")
+    res.send('Hello World!')
 })
 
 app.listen(port, () => {
