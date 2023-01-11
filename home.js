@@ -2,14 +2,15 @@ const logger = require("./LoggerConfig.js");
 //access log에 대한 필요 lib
 const morgan = require('morgan');
 
+const process = require('process');
 var path = require('path')
 var rfs = require('rotating-file-stream') 
-
+const HOSTNAME = process.env.HOSTNAME
 //accesslog만 따로 지정해서 보관할 경로 설정
-var accessLogStream = rfs.createStream('access.log', {
-    interval: '1d', // rotate daily
-    path: path.join('D:/logs/chatctl/test', 'access')
-  })
+var accessLogStream = rfs.createStream(HOSTNAME + 'access.log', {
+    interval: '20s', // rotate daily
+    path: path.join('D:/logs/chatctl/app', 'access')    
+})
 
 const express = require('express');
 const app = express();
